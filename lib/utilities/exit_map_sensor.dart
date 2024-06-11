@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:bonfire/bonfire.dart';
-import 'package:untitled/utilities/extensions.dart';
+import 'package:RadQuest/utilities/extensions.dart';
 
 class ExitMapSensor extends GameDecoration with Sensor {
   ExitMapSensor({required Vector2 position, required Vector2 size, required this.nextMap})

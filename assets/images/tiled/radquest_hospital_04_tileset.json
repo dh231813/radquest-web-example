@@ -1,0 +1,14 @@
+{ "columns":16,
+ "image":"Hospital_A4.png",
+ "imageheight":480,
+ "imagewidth":512,
+ "margin":0,
+ "name":"radquest_hospital_04_tileset",
+ "spacing":0,
+ "tilecount":240,
+ "tiledversion":"1.10.2",
+ "tileheight":32,
+ "tilewidth":32,
+ "type":"tileset",
+ "version":"1.10"
+}

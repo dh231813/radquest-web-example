@@ -1,5 +1,5 @@
-name: untitled
-description: "A new Flutter project."
+name: RadQuest
+description: "A learning app for Radiography students."
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
@@ -35,7 +35,8 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.6
-  bonfire: ^3.7.0
+  bonfire: ^3.9.0
+  flame_bloc: ^1.11.1
 
 dev_dependencies:
   flutter_test:
@@ -64,6 +65,8 @@ flutter:
     - assets/
     - assets/images/
     - assets/images/tiled/
+    - assets/images/tiled/maps/
+    - assets/images/tiled/maps/Radquest.json
     - assets/images/tiled/map.json
     - assets/images/characters/
     - assets/images/objects/
