@@ -1,15 +1,22 @@
-import 'package:RadQuest/maps/halloween_map_01.dart';
+import 'package:RadQuest/maps/hospital_map.dart';
 import 'package:bonfire/bonfire.dart';
 import 'package:flutter/material.dart';
+import'package:RadQuest/utilities/constants.dart';
 
-import 'package:bonfire/bonfire.dart';
-
-class PlayerBeardedDude extends SimplePlayer with BlockMovementCollision {
+class PlayerSerife extends SimplePlayer with BlockMovementCollision {
   final List<String> collectibles = [];
-  final List<String> badges = [];
+  final List<String> badges = [
+    kUltraSoundBadge,
+    kContrastAgentBadge,
+    kXrayBadge,
+    kCTBadge,
+    kMRTBadge,
+    kCoilBadge,
+    kPatientBadge,
+  ]; // Adding all badges initially for testing purposes
   bool movementPaused = false;
 
-  PlayerBeardedDude(
+  PlayerSerife(
       Vector2 position, {
         required this.spriteSheet,
         Direction initDirection = Direction.down,
@@ -52,5 +59,21 @@ class PlayerBeardedDude extends SimplePlayer with BlockMovementCollision {
     if (!movementPaused) {
       super.update(dt);
     }
+  }
+
+  void addCollectible(String item) {
+    collectibles.add(item);
+  }
+
+  void removeCollectible(String item) {
+    collectibles.remove(item);
+  }
+
+  bool hasCollectible(String item) {
+    return collectibles.contains(item);
+  }
+
+  void addBadge(String badge) {
+    badges.add(badge);
   }
 }

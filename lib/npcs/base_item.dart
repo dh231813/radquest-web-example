@@ -1,16 +1,16 @@
 import 'package:bonfire/bonfire.dart';
 import 'package:flutter/material.dart';
 import 'package:RadQuest/utilities/jenny_dialog.dart';
-import 'package:RadQuest/player/player_bearded_dude.dart';
+import 'package:RadQuest/player/player_serife.dart';
 
 
-class BaseNPC extends SimpleEnemy with BlockMovementCollision {
+class BaseItem extends SimpleEnemy with BlockMovementCollision {
   final List<Say> initialDialog;
   final List<Say> subsequentDialog;
   final SimpleDirectionAnimation spriteSheet;
   bool dialogFinished = false;
 
-  BaseNPC({
+  BaseItem({
     required Vector2 position,
     required this.initialDialog,
     required this.subsequentDialog,
@@ -31,7 +31,7 @@ class BaseNPC extends SimpleEnemy with BlockMovementCollision {
   }
   @override
   void onContact(GameComponent component, bool active) {
-    if (component is PlayerBeardedDude) {
+    if (component is PlayerSerife) {
       showDialog(
         context: context,
         builder: (BuildContext context) {

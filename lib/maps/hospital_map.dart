@@ -1,13 +1,23 @@
+import 'package:RadQuest/decorations/chest.dart';
+import 'package:RadQuest/decorations/coil_knee.dart';
 import 'package:RadQuest/decorations/contrast_agent_barium.dart';
 import 'package:RadQuest/decorations/contrast_agent_jod.dart';
 import 'package:RadQuest/decorations/contrast_agent_primovist.dart';
+import 'package:RadQuest/decorations/coil_head.dart';
+import 'package:RadQuest/decorations/coil_hand.dart';
+import 'package:RadQuest/decorations/coil_foot.dart';
+import 'package:RadQuest/decorations/coil_knee.dart';
 import 'package:RadQuest/interface/player_interface.dart';
 import 'package:RadQuest/inventory_widget.dart';
+import 'package:RadQuest/npcs/doctor_coil_npc.dart';
+import 'package:RadQuest/npcs/doctor_ct_npc.dart';
+import 'package:RadQuest/npcs/doctor_mrt_npc.dart';
 import 'package:RadQuest/npcs/doctor_ultrasound_npc.dart';
 import 'package:RadQuest/npcs/doctor_xray_npc.dart';
 import 'package:RadQuest/npcs/patient_npc_02.dart';
 import 'package:RadQuest/npcs/ordi_npc.dart';
 import'package:RadQuest/npcs/doctor_contrastagent_npc.dart';
+
 
 import 'package:RadQuest/utilities/constants.dart';
 import 'package:flutter/material.dart';
@@ -21,14 +31,14 @@ import 'package:RadQuest/utilities/badge_display.dart';
 
 double tileSize = 64.0;
 
-class HalloweenMap01 extends StatefulWidget {
-  const HalloweenMap01({Key? key}) : super(key: key);
+class HospitalMap extends StatefulWidget {
+  const HospitalMap({Key? key}) : super(key: key);
   @override
-  State<HalloweenMap01> createState() => _HalloweenMap01State();
+  State<HospitalMap> createState() => _HospitalMapState();
 }
 
 
-class _HalloweenMap01State extends State<HalloweenMap01>  {
+class _HospitalMapState extends State<HospitalMap>  {
 
   List<String> inventory = [];
   void addItemToInventory(String imagePath) {
@@ -57,12 +67,16 @@ class _HalloweenMap01State extends State<HalloweenMap01>  {
           'ordi': (properties) => OrdiNPC(properties.position),
           'patient': (properties) => PatientNPC_v2(properties.position),
 
-         // 'doctor_cbogen': (properties) => DoctorXRayNPC(properties.position),
-          'doctor_ct': (properties) => DoctorXRayNPC(properties.position),
+          'doctor_cbogen': (properties) => DoctorXRayNPC(properties.position),
           'doctor_ultrasound': (properties) => DoctorUltrasoundNPC(properties.position),
-          'doctor_mrt_offen': (properties) => DoctorXRayNPC(properties.position),
+          'doctor_mrt_offen': (properties) => DoctorMRTNPC(properties.position),
+          'doctor_ct': (properties) => DoctorCTNPC(properties.position),
+
+
           'doctor_contrast_agent': (properties) => createDoctorContrastAgentNPC(properties.position),
-          'doctor_coil': (properties) => DoctorXRayNPC(properties.position),
+          'doctor_coil': (properties) => createDoctorCoilNPC(properties.position),
+
+          'final_item': (properties) => Chest(properties.position),
 
           // Contrast Agents
           kGadoliniumCollectible: (p) => GadoliniumDecoration(p.position),
@@ -71,6 +85,10 @@ class _HalloweenMap01State extends State<HalloweenMap01>  {
           kPrimovistCollectible: (p) => PrimovistDecoration(p.position),
 
           // Coils
+          kHeadCoilCollectible: (p) => HeadCoilDecoration(p.position),
+          kFootCoilCollectible: (p) => FootCoilDecoration(p.position),
+          kHandCoilCollectible: (p) => HandCoilDecoration(p.position),
+          kKneeCoilCollectible: (p) => KneeCoilDecoration(p.position),
         },
 
       ),
